@@ -34,11 +34,11 @@ protected:
 private:
     std::mutex m_mutex;
     std::condition_variable m_condVar;
-    std::thread m_thread;
     std::function<void(TaskWorker::State)> m_stateNotifierHandler;
     State m_state = StateIdle;
-    TaskObject m_workingOn;
     bool m_quit = false;
+    TaskObject m_workingOn;
+    std::thread m_thread;
 };
 
 
